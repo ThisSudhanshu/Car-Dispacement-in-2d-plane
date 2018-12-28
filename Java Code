@@ -1,0 +1,36 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+public class Jdoodle
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String in1 = br.readLine();
+		String str1[] = in1.split(" ");
+		int posX = Integer.parseInt(str1[0]);
+		int posY = Integer.parseInt(str1[1]);
+		String in2 = br.readLine();
+		String str2[] = in2.split(",");
+ 
+		for(String s:str2){
+		    s=s.trim();
+		    if(s.startsWith("N")){
+		        posY=posY+Integer.parseInt(s.substring(2));
+		    }
+		    else if(s.startsWith("S")){
+		        posY=posY-Integer.parseInt(s.substring(2));
+		    }
+		    else if(s.startsWith("W")){
+		        posX=posX-Integer.parseInt(s.substring(2));
+		    }
+		    else if(s.startsWith("E")){
+		        posX=posX+Integer.parseInt(s.substring(2));
+		    }
+		}
+		int FinalPos = Math.abs(posX+posY);
+ 
+		System.out.println(posX+" "+posY+"\n"+FinalPos);
+	}
+
